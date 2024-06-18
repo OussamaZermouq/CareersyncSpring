@@ -1,5 +1,6 @@
 package com.pfa.Careersync.Model;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -15,6 +16,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Entity
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,7 +29,7 @@ public class User {
     private  String bio;
     private String skills;
     private String cv_file;
-    private ArrayList<String> recamended_jobs;
+    //private ArrayList<String> recamended_jobs;
     //TODO: ENUM niveaux etude
     private Date date_naissance;
 
