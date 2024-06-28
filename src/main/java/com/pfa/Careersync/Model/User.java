@@ -1,13 +1,11 @@
 package com.pfa.Careersync.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,16 +20,17 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id_user ;
     private String nom_user;
-    private  String prenom_user;
+    private String prenom_user;
     private String adresse;
     private String email;
     private String password;
-    private  String bio;
-    private String skills;
-    private String cv_file;
-    //private ArrayList<String> recamended_jobs;
-    //TODO: ENUM niveaux etude
     private Date date_naissance;
+    @Enumerated(EnumType.STRING)
+    private NiveauEtude NiveauEtude;
 
+    //Contains the URL, or the ID of the file that has been uploaded to the cloud service.
+    private String CvFile;
+    private String bio;
+    private String skills;
 
 }
