@@ -1,4 +1,4 @@
-package com.pfa.Careersync.Controlleres;
+package com.pfa.Careersync.Controllers;
 
 import com.pfa.Careersync.Model.User;
 import com.pfa.Careersync.Services.UserService;
