@@ -9,6 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.multipart.MultipartFile;
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -32,9 +33,9 @@ public class User implements UserDetails {
     private Date date_naissance;
     @Enumerated(EnumType.STRING)
     private NiveauEtude NiveauEtude;
-
     //Contains the URL, or the ID of the file that has been uploaded to the cloud service.
     private String CvFile;
+    @Column(length = 2048)
     private String bio;
     private String skills;
 

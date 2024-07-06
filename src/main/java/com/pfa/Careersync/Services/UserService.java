@@ -1,5 +1,6 @@
 package com.pfa.Careersync.Services;
 
+import com.pfa.Careersync.Model.Role;
 import com.pfa.Careersync.Model.User;
 import com.pfa.Careersync.Repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,9 @@ public class UserService {
                 adresse(user.getAdresse()).
                 email(user.getEmail()).
                 bio(user.getBio()).
+                CvFile(user.getCvFile()).
+                skills(user.getSkills()).
+                role(Role.CANDIDAT).
                 date_naissance(user.getDate_naissance()).
                 password(user.getPassword()).
                 build();
@@ -49,5 +53,13 @@ public class UserService {
             return ResponseEntity.ok(newUser);
         }
         return null;
+    }
+
+    public User findByUsername(String email) throws Exception {
+        return userRepository.findByEmail(email).orElseThrow(()->new Exception("User Not found"));
+    }
+
+    public User findById(int id) throws Exception {
+        return userRepository.findById(id).orElseThrow(()->new Exception("User Not Found"));
     }
 }
